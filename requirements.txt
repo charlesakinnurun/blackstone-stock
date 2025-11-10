@@ -4,6 +4,6 @@ numpy
 matplotlib
 seaborn
 scikit-learn
-warnings
 xgboost
-juypter
+jupyter
+warnings
