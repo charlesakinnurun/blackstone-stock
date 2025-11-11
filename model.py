@@ -212,4 +212,129 @@ print(f"Best Initial model: {best_model_name} with accuracy: {results[best_model
 # %% [markdown]
 # Hyperparameter Tuning (Using GridSearchCV)
 
+# %%
+# We'll tune the best model. Let's create parameter grids for a few
+# We'll use a Random Forest as the default for this example, as it's 
+# robust and a common choice for a "best" inital model
+# You can easily adapt this to use "best_model_name" dynamically
+
+# Let's assume Random Forest is our chosen model for tuning
+# If not, this section would need a more complex if/elif structure
+# For simplicity, we will tune RandomForestClassifier
+
+final_model = "Random Forest"
+print("We will proceed with tuning Random Forest for this example")
+
+# %%
+# Parameter grid for RandomForest
+# This is a small grid to keep tuning time short
+# In a real project, you would search a much larger space
+param_grid = {
+    "n_estimators":[50,10,200], # Number of trees in the forest
+    "max_depth":[None,10,20], # Maximum depth of the tree
+    "min_samples_split":[2,5] # Minimum samples required to split a node
+}
+
+# %%
+# Initialize GridSearchCV
+# cv=3 means 3-fold cross-validation
+# n_jobs = -1 use all available CPU cores
+grid_search = GridSearchCV(
+    estimator=RandomForestClassifier(random_state=42),
+    param_grid=param_grid,
+    cv=3,
+    n_jobs=-2,
+    verbose=1,
+    scoring="accuracy"
+)
+
+# Fit GridSearchCV to the training data
+print("Running GridSearchCV..........(This may take a minute)")
+grid_search.fit(X_train_scaled,y_train)
+
+# Get the best model and parameters
+print(f"Best parameters found: {grid_search.best_params_}")
+print(f"Best cross-validation accuracy: {grid_search.best_score_:.4f}")
+
+# This is our final, tuned model
+final_model = grid_search.best_estimator_
+
+# %% [markdown]
+# Final Model Evaluation (After Tuning)
+
+# %%
+print("----- Final Model Evaluation -----")
+
+# Evaluate the final model on the unseen test set
+y_pred_final = final_model.predict(X_test_scaled)
+
+print("Final Classification Report:")
+print(classification_report(y_test,y_pred_final,zero_division=0))
+
+final_accuracy = accuracy_score(y_test,y_pred_final)
+print(f"Final Test Accuracy: {final_accuracy:.4f}")
+
+# %% [markdown]
+# Visualization After Training
+
+# %%
+# Plot 4: Confusion Matrix
+print("Generating post-training visualization...........")
+cm = confusion_matrix(y_test,y_pred_final)
+plt.figure(figsize=(8,6))
+sns.heatmap(cm,annot=True,fmt="d",cmap="Blues",xticklabels=["Pred Down/Same","Pred Up"],yticklabels=["Actual Dowm/Same","Actual Up"])
+plt.title(f"Confusion Matrix for Best Model")
+plt.ylabel("Actual Label")
+plt.xlabel("Predicted Label")
+plt.savefig("bx_confusion_matrix.png")
+plt.show()
+
+# %%
+# Plot 5: Feature Importance (Only for tree-based models)
+if hasattr(final_model,"feature_importances_"):
+    importances = final_model.feature_importances_
+    # Create a pandas series for easy plotting
+    features_importances = pd.Series(importances, index=X.columns.map(str)).sort_values(ascending=False)
+
+    
+
+    plt.figure(figsize=(10,6))
+    sns.barplot(x=features_importances,y=features_importances.index,palette="viridis")
+    plt.title(f"Feature Importance for the Best Model")
+    plt.xlabel("Importance Score")
+    plt.ylabel("Features")
+    plt.tight_layout()
+    plt.savefig("bx_feature_importance.png")
+    plt.show()
+
+# %% [markdown]
+# Input for New prediction
+
+# %%
+print("----- Example: Making a New Prediction -----")
+# To make a prediction, we need the most recent set of features
+# We take the last row of our feature matrix "X"
+# Note: This is the data used to "predict" the last "y" value in our set
+# In a real-world scenario, you would fetch "new" data
+
+# Get the last row of features (as a DataFrame)
+new_data_point = X.iloc[[-1]]
+print(f"Using last available data point for prediction: {new_data_point}")
+
+# We MUST scale this new data using the "same" scaler
+new_data_scaled = scaler.transform(new_data_point)
+
+# Make the prediction
+prediction = final_model.predict(new_data_scaled)
+prediction_proba = final_model.predict_proba(new_data_scaled)
+
+# Interpret the prediction
+prediction_label = "GO UP" if prediction[0] == 1 else "GO DOWM or STAY SAME"
+
+print("----- Prediction Result -----")
+print(f"Model prediction: {prediction[0]} ({prediction_label})")
+print(f"Prediction probability: [P(Dowm/Same), P(Up)] = {prediction_proba[0]}")
+print("This prediction is for the day *after* the last date in the test set")
+print("Again, this is an educational example. DO NOT trade based on this")
+
 
