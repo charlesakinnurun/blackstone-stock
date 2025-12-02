@@ -1,5 +1,5 @@
 # BlackStone Stock
-![blackstone-stock](/image.jpg)
+![blackstone-stock](/blackstone_header_image.webp)
 
 
 ## Procedures
@@ -178,7 +178,7 @@ blackstone-stock/
 |── model.py    
 |── blackstone_stock_data.csv  
 ├── requirements.txt 
-├── image.jpg    
+├── blackstone_header_image.webp    
 ├── bx_confusion_matrix.png
 ├── bx_feature_heatmap.png   
 ├── bx_price_sma.png
