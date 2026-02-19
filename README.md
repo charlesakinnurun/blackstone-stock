@@ -1,6 +1,6 @@
 <!--# BlackStone Stock-->
 <!--![blackstone-stock](/blackstone_header_image.webp)-->
-## 🎯 Objectives
+# 🎯 Objectives
 
 -   Predict whether a stock price will move up or down
 
@@ -25,6 +25,8 @@
 
 
 - Data Loading
+
+<a href="/data/blackstone_stock_data.csv">Check out dataset</a>
 
 | Date       | Price      | Close      | High       | Low        | Open       | Volume   |
 |------------|------------|------------|------------|------------|------------|----------|
@@ -60,7 +62,9 @@
 
 
 - Feature Engineering
-    - Features: SMA_5, SMA_20, Volume_SMA_5, Daily_Change, Lag_5_Change, Open, High, Low, Close, Volume
+    - Features: SMA_5, SMA_20, Volume_SMA_5, Daily_Change, Lag_5_Change
+    - Target: Close
+
     - <a href="/assets/bx_feature_importance.png">Feature Importance</a>
     - <a href="/assets/bx_feature_heatmap.png">Feature Correlation Heatmap</a>
     - <a href="/assets/bx_target_distribution.png">Target Distribution</a>
@@ -69,7 +73,7 @@
 
 - Data Spltting
     - Split the data into training and testing sets
-    - We use the shuffle=False because this is time-series data
+    - Use the shuffle=False because this is time-series data
 
 
 
@@ -90,7 +94,10 @@
     - Random Forest
     - Gaussian Naive bayes
 
-
+- Hyperparameter Tuning (GridSearchCV)
+    - n_estimators
+    - max_depth
+    - min_samples_split
 
 
 - Model Evaluation
