@@ -1,5 +1,16 @@
-# BlackStone Stock
+<!--# BlackStone Stock-->
 <!--![blackstone-stock](/blackstone_header_image.webp)-->
+## 🎯 Objectives
+
+-   Predict whether a stock price will move up or down
+
+-   Engineer meaningful technical indicators from raw market data
+
+-   Compare multiple ML classification models
+
+-   Evaluate performance using robust metrics
+
+-   Visualize model performance and results
 
 ## Procedures
 - Import libraries
@@ -31,8 +42,6 @@
 
 
 
-- Feature Engineering
-    - Features: SMA_5, SMA_20, Volume_SMA_5, Daily_Change, Lag_5_Change, Open, High, Low, Close, Volume
 
 
 
@@ -45,11 +54,16 @@
 
 
 - Exploratory Data Visualization
+    - <a href="/assets/bx_price_sma.png">Close Price and Moving Average</a>
 
 
 
 
 - Feature Engineering
+    - Features: SMA_5, SMA_20, Volume_SMA_5, Daily_Change, Lag_5_Change, Open, High, Low, Close, Volume
+    - <a href="/assets/bx_feature_importance.png">Feature Importance</a>
+    - <a href="/assets/bx_feature_heatmap.png">Feature Correlation Heatmap</a>
+    - <a href="/assets/bx_target_distribution.png">Target Distribution</a>
 
 
 
@@ -61,17 +75,17 @@
 
 
 - Data Scaling
-    - Scale the features using Standard scaler
+    - Scale the features using Standard Scaler
     - This is cruical for models like SVM and KNN
 
 
 
 
 
-- Model Training
+- Models Implemented
     - Logistic Regression
-    - K-Nearest Neighbors
-    - Support Vector Machine
+    - K-Nearest Neighbors (KNN)
+    - Support Vector Machine (SVM)
     - Decison Tree 
     - Random Forest
     - Gaussian Naive bayes
@@ -89,4 +103,5 @@
 
 
 - Post-Training Visualization
+    - <a href="/assets/bx_confusion_matrix.png">Confusion Matrix</a>
 
