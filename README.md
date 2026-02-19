@@ -1,6 +1,6 @@
 <!--# BlackStone Stock-->
 <!--![blackstone-stock](/blackstone_header_image.webp)-->
-# 🎯 Objectives
+# 🎯 Blackstone Stock
 
 -   Predict whether a stock price will move up or down
 
