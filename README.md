@@ -56,7 +56,9 @@
 
 
 - Exploratory Data Visualization
-    - <a href="/assets/bx_price_sma.png">Close Price and Moving Average</a>
+    - <a href="/assets/bx_price_sma.png">Close Price and Moving Averages</a>
+
+    ![Close Price and Moving Averages](/assets/bx_price_sma.png)
 
 
 
@@ -66,8 +68,16 @@
     - Target: Close
 
     - <a href="/assets/bx_feature_importance.png">Feature Importance</a>
+
+    ![Feature Importance](/assets/bx_feature_importance.png)
+
     - <a href="/assets/bx_feature_heatmap.png">Feature Correlation Heatmap</a>
+
+    ![Feature Heatmap](/assets/bx_feature_heatmap.png)
+
     - <a href="/assets/bx_target_distribution.png">Target Distribution</a>
+
+    ![Target Distribution](/assets/bx_target_distribution.png)
 
 
 
@@ -111,4 +121,6 @@
 
 - Post-Training Visualization
     - <a href="/assets/bx_confusion_matrix.png">Confusion Matrix</a>
+
+    ![Confusion Matrix](/assets/bx_confusion_matrix.png)
 
