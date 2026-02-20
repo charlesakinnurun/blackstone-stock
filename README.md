@@ -1,5 +1,5 @@
 <!--# BlackStone Stock-->
-<!--![blackstone-stock](/blackstone_header_image.webp)-->
+![blackstone-stock-image](/assets/blackstone.jpg)
 # 🎯 Objectives
 
 -   Predict whether a stock price will move up or down
