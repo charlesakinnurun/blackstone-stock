@@ -28,7 +28,7 @@
 
 - Data Loading
 
-<a href="/data/blackstone_stock_data.csv">Check out dataset</a>
+    <a href="/data/blackstone_stock_data.csv">Check out dataset</a>
 
 | Date       | Price      | Close      | High       | Low        | Open       | Volume   |
 |------------|------------|------------|------------|------------|------------|----------|
