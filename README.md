@@ -1,4 +1,4 @@
-<!--# BlackStone Stock-->
+# BlackStone Stock Direction
 ![blackstone-stock-image](/assets/blackstone.jpg)
 
 <!--
