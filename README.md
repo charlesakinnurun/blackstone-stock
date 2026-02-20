@@ -1,5 +1,7 @@
 <!--# BlackStone Stock-->
 ![blackstone-stock-image](/assets/blackstone.jpg)
+
+<!--
 # 🎯 Objectives
 
 -   Predict whether a stock price will move up or down
@@ -11,7 +13,7 @@
 -   Evaluate performance using robust metrics
 
 -   Visualize model performance and results
-
+-->
 ## Procedures
 - Import libraries
     - pandas
