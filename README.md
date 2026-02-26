@@ -15,6 +15,7 @@
 -   Visualize model performance and results
 -->
 ## Procedures
+<!--
 - Import libraries
     - pandas
     - numpy
@@ -24,11 +25,10 @@
     - yfinance
   
 
-
+-->
 
 - Data Loading
 
-    <a href="/data/blackstone_stock_data.csv">Check out dataset</a>
 
 | Date       | Price      | Close      | High       | Low        | Open       | Volume   |
 |------------|------------|------------|------------|------------|------------|----------|
@@ -44,6 +44,9 @@
 | 2023-12-28 | 125.917717 | 126.296041 | 124.886757 | 125.321842 | 125.321842 | 2,087,900 |
 | 2023-12-29 | 123.827423 | 126.021744 | 123.222096 | 125.671779 | 125.671779 | 2,049,000 |
 
+
+
+<a href="/data/blackstone_stock_data.csv">Check out dataset</a>
 
 
 
